@@ -1,10 +1,11 @@
 import pg from 'pg'
+import config from './../config/config.js'
 const pool = new pg.Pool({
-    user: 'flavio',
-    host: 'localhost',
-    database: 'api',
-    password: '0000',
-    port: 5432,
+    user: config.development.username,
+    host: config.development.host,
+    database: config.development.database,
+    password: config.development.password,
+    port: config.development.port,
   })
 
   export const getUsers = (req,res) =>{

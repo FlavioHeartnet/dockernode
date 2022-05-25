@@ -16,12 +16,14 @@ services:
        - db 
   db:
     image: postgres:14.2
-    command: psql -U postgres &&\ psql --command "CREATE USER flavio WITH SUPERUSER PASSWORD '0000';" &&\ createdb -O api flavio &&\ psql --command "CREATE TABLE users (ID SERIAL PRIMARY KEY, name VARCHAR(30))
     container_name: db
     restart: always
     tty: true
     environment:
-      POSTGRES_PASSWORD: 0000
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=0000
+    ports:
+      - '5432:5432'
     networks: 
       - node-network   
 
