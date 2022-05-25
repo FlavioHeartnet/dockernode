@@ -5,6 +5,7 @@ services:
     build: 
       context: ./
     container_name: app
+    entrypoint: dockerize -wait tcp://db:5432 -timeout 20s docker-entrypoint.sh
     networks: 
       - node-network
     volumes: 
@@ -24,6 +25,8 @@ services:
       - POSTGRES_PASSWORD=0000
     ports:
       - '5432:5432'
+    volumes:
+      -  ./db:/var/lib/postgres/data 
     networks: 
       - node-network   
 
