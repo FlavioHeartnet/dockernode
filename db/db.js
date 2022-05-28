@@ -13,7 +13,7 @@ const pool = new pg.Pool({
         if(err){
           throw err
         }
-        let html = '<h1>Full Cycle Rocks!</h1>'
+        let html = '<h1>Full Cycle Rocks!!!</h1>'
         let list = '<ul>'
         result.rows.forEach(user => {
             list+=`<li>${user.name}</li>`
