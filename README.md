@@ -4,7 +4,7 @@ Installing
 1. run docker-compose up -d --build
 2. run docker exec -it app bash
 3. inside the node container run npx sequelize-cli db:migrate
-4. and the run npm run start
+4. and them run npm run start
 
 Usage(host:3000/):
 
